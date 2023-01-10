@@ -58,31 +58,32 @@ export default function Index({
   }
 
   return (
-    <Box>
-      <Stack spacing={1}>
-        <Stack spacing={1}>
-          <TextInput 
-          placeholder="Please write a prompt for content to generate" 
-          label="Prompt" name="Prompt" 
-          onChange={e => setPrompt(e.target.value)} value={prompt} />
+    <Stack spacing={1}>
+      <TextInput
+        placeholder="Please write a prompt for content to generate"
+        label="Prompt"
+        name="Prompt"
+        onChange={(e) => setPrompt(e.target.value)}
+        value={prompt}
+      />
+      <Stack padding={4} spacing={2}>
+        <Textarea
+          placeholder="Generated text"
+          label="Content"
+          name="content"
+          onChange={(e) =>
+            onChange({
+              target: { name, value: e.target.value, type: attribute.type },
+            })
+          }
+        >
+          {value}
+        </Textarea>
+        <Stack horizontal spacing={4}>
+          <Button onClick={aiClick}>Generate</Button>
+          <Button onClick={() => clearGeneratedText()}>Clear</Button>
         </Stack>
-        <Box as="p" padding={4}>
-          <Textarea 
-          placeholder="Generated text" 
-          label="Content" 
-          name="content" 
-          onChange={e => onChange({ target: { name, value: e.target.value, type: attribute.type } })}>
-            {value}
-          </Textarea>
-        </Box>
       </Stack>
-      <Box padding={4}>
-        <TwoColsLayout 
-        startCol={<Button onClick={aiClick}>Generate</Button>} 
-        endCol={<Button onClick={() => clearGeneratedText()}>Clear</Button>
-      } 
-        />
-      </Box>
-    </Box>
+    </Stack>
   )
 }

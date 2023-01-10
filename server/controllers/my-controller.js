@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = ({ strapi }) => ({
-  index(ctx) {
-    ctx.body = strapi
+  async generate(ctx) {
+    ctx.body = await strapi
       .plugin('ai-text-generation')
       .service('myService')
-      .getWelcomeMessage();
+      .generate(ctx.request.body.prompt);
   },
 });
