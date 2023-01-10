@@ -20,12 +20,9 @@ export default function Index({
   const { formatMessage } = useIntl();
   const [content, setContent] = useState('');
   const [prompt, setPrompt] = useState('');
-  const [err, setErr] = useState('');
-  const xet = process.env.OPEN_AI_ACCESS_TOKEN
-
+  const [err, setErr] = useState(''); 
 
   const aiClick = async () => {
-    console.log('vars: ', xet)
     try {
       const response = await fetch('https://api.openai.com/v1/completions', {
         method: 'POST',
