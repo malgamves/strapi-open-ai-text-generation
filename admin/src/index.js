@@ -1,41 +1,14 @@
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
 import pluginPkg from '../../package.json';
 import pluginId from './pluginId';
-import Initializer from './components/Initializer';
 import PluginIcon from './components/PluginIcon';
-import AITextIcon from './components/PluginIcon';
 
 
 const name = pluginPkg.strapi.name;
 
 export default { 
   register(app) {
-    // app.addMenuLink({
-    //   to: `/plugins/${pluginId}`,
-    //   icon: PluginIcon,
-    //   intlLabel: {
-    //     id: `${pluginId}.plugin.name`,
-    //     defaultMessage: name,
-    //   },
-    //   Component: async () => {
-    //     const component = await import(/* webpackChunkName: "[request]" */ './pages/App');
-
-    //     return component;
-    //   },
-    //   permissions: [
-    //     // Uncomment to set the permissions of the plugin here
-    //     // {
-    //     //   action: '', // the action name should be plugin::plugin-name.actionType
-    //     //   subject: null,
-    //     // },
-    //   ],
-    // });
-    // app.registerPlugin({
-    //   id: pluginId,
-    //   initializer: Initializer,
-    //   isReady: false,
-    //   name,
-    // });
+    
     app.customFields.register({
       name: "text-ai",
       pluginId: "ai-text-generation", // the custom field is created by a color-picker plugin
@@ -61,15 +34,10 @@ export default {
           {
             sectionTitle: { // Add a "Format" settings section
               id: 'ai-text-generation.text-ai.api.details',
-              defaultMessage: 'API Details',
+              defaultMessage: 'Text Details',
             },
             items: [ // Add settings items to the section
               {
-                /*
-                  Add a "Color format" dropdown
-                  to choose between 2 different format options
-                  for the color value: hexadecimal or RGBA
-                */
                 intlLabel: {
                   id: 'ai-text-generation.text-ai.key',
                   defaultMessage: 'Key',
