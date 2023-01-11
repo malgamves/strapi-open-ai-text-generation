@@ -2,13 +2,9 @@
 
 const axios = require('axios');
 
-
 module.exports = ({ strapi }) => ({
-  getWelcomeMessage() {
-    return 'Welcome to Strapi 🚀';
-  },
 
-  async generate(prompt) {
+  async generateText(prompt) {
     try {
       const response = await axios(
         {
@@ -16,7 +12,7 @@ module.exports = ({ strapi }) => ({
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${strapi.plugin('ai-text-generation').config('accessToken')}` //functionality to be added
+            'Authorization': `Bearer ${strapi.plugin('ai-text-generation').config('apiToken')}`
           },
           data: JSON.stringify({
             'model': 'text-davinci-001',
@@ -29,15 +25,14 @@ module.exports = ({ strapi }) => ({
           })
         })
 
-      
+
       const result = await response.data;
-      console.log('response:', response.data)
-    return result;
-  }
-    catch (err){ 
+      return result;
+    }
+    catch (err) {
       console.log(err.response)
     }
 
-}
-  
+  }
+
 });

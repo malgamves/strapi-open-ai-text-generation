@@ -48,7 +48,7 @@ export default {
         id: "ai-text-generation.text-ai.description",
         defaultMessage: "Let AI do your writing!",
       },
-      icon: AITextIcon, // don't forget to create/import your icon component 
+      icon: PluginIcon, // don't forget to create/import your icon component 
       components: {
         Input: async () => import(/* webpackChunkName: "input-component" */ "./components/Input"),
       },

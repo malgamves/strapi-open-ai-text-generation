@@ -1,8 +1,8 @@
 module.exports = [
   {
     method: 'POST',
-    path: '/generate',
-    handler: 'myController.generate',
+    path: '/generate-text',
+    handler: 'aiController.generate',
     config: {
       policies: [],
     },

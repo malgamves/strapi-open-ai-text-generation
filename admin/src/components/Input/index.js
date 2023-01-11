@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { TextInput } from '@strapi/design-system/TextInput';
 import { Stack } from '@strapi/design-system/Stack';
-import { Box } from '@strapi/design-system/Box';
 import { Button } from '@strapi/design-system/Button';
 import { Textarea } from '@strapi/design-system';
-import { TwoColsLayout } from '@strapi/design-system';
+import { auth } from '@strapi/helper-plugin'
 
 
 export default function Index({
@@ -18,17 +17,16 @@ export default function Index({
   attribute,
 }) {
   const { formatMessage } = useIntl();
-  const [content, setContent] = useState('');
   const [prompt, setPrompt] = useState('');
   const [err, setErr] = useState(''); 
 
-  const aiClick = async () => {
+  const generateText = async () => {
     try {
-      const response = await fetch('https://api.openai.com/v1/completions', {
+      const response = await fetch(`/ai-text-generation/generate-text`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${accessToken}` //functionality to be added
+          'Authorization': `Bearer ${auth.getToken()}` 
         },
         body: JSON.stringify({
           'model': 'text-davinci-001',
@@ -46,7 +44,9 @@ export default function Index({
       }
 
       const result = await response.json();
-      onChange({ target: { name, value: result.choices[0].text, type: attribute.type } })
+      const parsedResult = result.choices[0].text.replace(/(?:\r\n|\r|\n)/g, '');
+
+      onChange({ target: { name, value: parsedResult, type: attribute.type } })
     } catch (err) {
       setErr(err.message);
     }
@@ -80,7 +80,7 @@ export default function Index({
           {value}
         </Textarea>
         <Stack horizontal spacing={4}>
-          <Button onClick={aiClick}>Generate</Button>
+          <Button onClick={() => generateText()}>Generate</Button>
           <Button onClick={() => clearGeneratedText()}>Clear</Button>
         </Stack>
       </Stack>
