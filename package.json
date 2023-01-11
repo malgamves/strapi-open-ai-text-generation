@@ -1,22 +1,30 @@
 {
   "name": "ai-text-generation",
-  "version": "0.0.1",
-  "description": "This is the description of the plugin.",
+  "version": "0.1.0",
+  "description": "A Strapi Custom Field for Text Generation with Open AI.",
   "strapi": {
     "name": "ai-text-generation",
-    "description": "Description of Ai Text Generation plugin",
+    "description": "A Strapi Custom Field for Text Generation with Open AI.",
     "kind": "plugin",
     "displayName": "AI Text Generation"
   },
   "dependencies": {
     "axios": "^1.2.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/malgamves/strapi-open-ai-text-generation.git"
+  },
   "author": {
-    "name": "A Strapi developer"
+    "name": "Daniel Phiri",
+    "email": "malgamves@gmail.com",
+    "url": "https://malgamves.dev"
   },
   "maintainers": [
     {
-      "name": "A Strapi developer"
+      "name": "Daniel Phiri",
+      "email": "malgamves@gmail.com",
+      "url": "https://malgamves.dev"
     }
   ],
   "engines": {
