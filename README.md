@@ -3,10 +3,7 @@
 With this Custom Field, you can leverage Open AI to generate CMS content for your products, webistes, blogs or whatever your heat desires.
 
 
-<img src="https://user-images.githubusercontent.com/25641936/211792939-59ef9f11-b5b2-40d6-aa09-bfdeea5a17c2.gif" alt="A Custom Field called writer that generates text for content editors.">
-
-
-
+<img src="https://user-images.githubusercontent.com/25641936/212054710-1c96197e-f71a-4580-85b5-8a3cb5dc75e3.gif" alt="A Custom Field called writer that generates text for content editors.">
 
 
 ### ✨ Coming Soon
