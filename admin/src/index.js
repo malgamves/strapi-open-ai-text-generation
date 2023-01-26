@@ -11,8 +11,8 @@ export default {
     
     app.customFields.register({
       name: "text-ai",
-      pluginId: "ai-text-generation", // the custom field is created by a color-picker plugin
-      type: "string", // the color will be stored as a string
+      pluginId: "ai-text-generation",
+      type: "string", 
       intlLabel: {
         id: "ai-text-generation.text-ai.label",
         defaultMessage: "Text AI",
