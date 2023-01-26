@@ -32,7 +32,7 @@ export default function Index({
           'model': 'text-davinci-001',
           'prompt': `${prompt}`,
           'temperature': 0.4,
-          'max_tokens': 64,
+          'max_tokens': parseFloat(attribute.options.length),
           'top_p': 1,
           'frequency_penalty': 0,
           'presence_penalty': 0
@@ -66,10 +66,9 @@ export default function Index({
         onChange={(e) => setPrompt(e.target.value)}
         value={prompt}
       />
-      <Stack padding={4} spacing={2}>
+      <Stack spacing={2}>
         <Textarea
           placeholder="Generated text"
-          label="Content"
           name="content"
           onChange={(e) =>
             onChange({
@@ -79,9 +78,9 @@ export default function Index({
         >
           {value}
         </Textarea>
-        <Stack horizontal spacing={4}>
+        <Stack horizontal spacing={1}>
           <Button onClick={() => generateText()}>Generate</Button>
-          <Button onClick={() => clearGeneratedText()}>Clear</Button>
+          <Button variant='secondary' onClick={() => clearGeneratedText()}>Clear</Button>
         </Stack>
       </Stack>
     </Stack>

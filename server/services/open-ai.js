@@ -4,7 +4,7 @@ const axios = require('axios');
 
 module.exports = ({ strapi }) => ({
 
-  async generateText(prompt) {
+  async generateText(prompt, max_tokens) {
     try {
       const response = await axios(
         {
@@ -18,7 +18,7 @@ module.exports = ({ strapi }) => ({
             'model': 'text-davinci-001',
             'prompt': `${prompt}`,
             'temperature': 0.4,
-            'max_tokens': 64,
+            'max_tokens': parseFloat(max_tokens),
             'top_p': 1,
             'frequency_penalty': 0,
             'presence_penalty': 0

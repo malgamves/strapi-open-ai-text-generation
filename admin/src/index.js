@@ -11,8 +11,8 @@ export default {
     
     app.customFields.register({
       name: "text-ai",
-      pluginId: "ai-text-generation", // the custom field is created by a color-picker plugin
-      type: "string", // the color will be stored as a string
+      pluginId: "ai-text-generation",
+      type: "string", 
       intlLabel: {
         id: "ai-text-generation.text-ai.label",
         defaultMessage: "Text AI",
@@ -32,19 +32,42 @@ export default {
             of the field in the Content-Type Builder
           */
           {
-            sectionTitle: { // Add a "Format" settings section
-              id: 'ai-text-generation.text-ai.api.details',
-              defaultMessage: 'Text Details',
+            sectionTitle: { 
+              id: 'ai-text-generation.text-ai.length',
+              defaultMessage: 'Text Length',
             },
             items: [ // Add settings items to the section
               {
+                
                 intlLabel: {
-                  id: 'ai-text-generation.text-ai.key',
-                  defaultMessage: 'Key',
+                  id: 'ai-text-generation.text-ai.length.label',
+                  defaultMessage: 'Select the length of your text',
                 },
-                name: 'options.key',
-                type: 'input',
-                value: '', // option selected by default
+                name: 'options.length',
+                type: 'select',
+                value: '64', // these are tokens, 1 token is roughly 4 english words so this goes to approx 250 words
+                options: [ 
+                  {
+                    key: '250 words',
+                    value: '250',
+                    metadatas: {
+                      intlLabel: {
+                        id: 'ai-text-generation.text-ai.length.250',
+                        defaultMessage: '250 words',
+                      },
+                    },
+                  },
+                  {
+                    key: '500 words',
+                    value: '128', // these are tokens, 1 token is roughly 4 english words so this goes to approx 500 words
+                    metadatas: {
+                      intlLabel: {
+                        id: 'ai-text-generation.text-ai.length.500',
+                        defaultMessage: '500 words',
+                      },
+                    },
+                  },
+                ],
               },
             ],
           },
