@@ -1,6 +1,6 @@
 {
   "name": "ai-text-generation",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "A Strapi Custom Field for Text Generation with Open AI.",
   "strapi": {
     "name": "ai-text-generation",
